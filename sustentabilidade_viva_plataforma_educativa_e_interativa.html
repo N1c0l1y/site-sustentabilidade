@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoAção - Portal de Sustentabilidade & Ciência</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        eco: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                            dark: '#0a2e18'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-eco {
+            background: linear-gradient(135deg, #0a2e18 0%, #16a34a 50%, #059669 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(220, 252, 231, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- Header & Navegação -->
+    <header class="sticky top-0 z-50 glass-card transition-all duration-300 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 group">
+                    <div class="p-2 bg-eco-600 text-white rounded-xl shadow-md group-hover:bg-eco-700 transition">
+                        <i data-lucide="leaf" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-2xl font-extrabold tracking-tight text-slate-900">Eco<span class="text-eco-600">Ação</span></span>
+                </a>
+
+                <!-- Nav Desktop -->
+                <nav class="hidden md:flex items-center gap-8 font-medium text-slate-600 text-sm">
+                    <a href="#temas" class="hover:text-eco-600 transition-colors">Temas</a>
+                    <a href="#calculadora" class="hover:text-eco-600 transition-colors">Calculadora CO₂</a>
+                    <a href="#artigos" class="hover:text-eco-600 transition-colors">Artigos Científicos</a>
+                    <a href="#pontos-coleta" class="hover:text-eco-600 transition-colors">Descarte</a>
+                    <a href="#calculadora" class="bg-eco-600 hover:bg-eco-700 text-white px-5 py-2.5 rounded-full font-semibold shadow-md hover:shadow-lg transition">
+                        Calcule sua Pegada
+                    </a>
+                </nav>
+
+                <!-- Botão Menu Mobile -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-eco-600 focus:outline-none">
+                    <i data-lucide="menu" class="w-7 h-7"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white/95 backdrop-filter px-4 pt-3 pb-6 space-y-3">
+            <a href="#temas" class="block px-3 py-2 rounded-lg hover:bg-eco-50 text-slate-700 font-medium">Temas Principais</a>
+            <a href="#calculadora" class="block px-3 py-2 rounded-lg hover:bg-eco-50 text-slate-700 font-medium">Calculadora CO₂</a>
+            <a href="#artigos" class="block px-3 py-2 rounded-lg hover:bg-eco-50 text-slate-700 font-medium">Artigos Científicos</a>
+            <a href="#pontos-coleta" class="block px-3 py-2 rounded-lg hover:bg-eco-50 text-slate-700 font-medium">Pontos de Coleta</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 lg:py-28 overflow-hidden gradient-eco text-white">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-xs sm:text-sm font-medium">
+                        <i data-lucide="globe" class="w-4 h-4 text-eco-300"></i>
+                        <span>Conhecimento Científico & Ação Sustentável</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Transforme o amanhã com <span class="text-eco-300">escolhas conscientes</span> hoje.
+                    </h1>
+                    <p class="text-slate-200 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Explore as principais inovações ecológicas, do plástico verde à economia circular. Entenda seu impacto no planeta através da ciência.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#calculadora" class="bg-eco-500 hover:bg-eco-400 text-eco-dark font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition flex items-center justify-center gap-2">
+                            <i data-lucide="calculator" class="w-5 h-5"></i>
+                            Calcular Minha Pegada
+                        </a>
+                        <a href="#temas" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-8 py-4 rounded-xl transition flex items-center justify-center gap-2 backdrop-blur-sm">
+                            <i data-lucide="book-open" class="w-5 h-5"></i>
+                            Explorar Temas
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="aspect-video lg:aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 relative group">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1000&q=80" alt="Mãos segurando planta crescendo" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 p-4 glass-card rounded-2xl text-slate-800">
+                            <div class="flex items-center gap-3">
+                                <div class="p-2 bg-eco-600 text-white rounded-lg">
+                                    <i data-lucide="sprout" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">Ação Planetária</h4>
+                                    <p class="text-xs text-slate-600">Pequenas atitudes diárias geram impactos globais sustentáveis.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Temas de Sustentabilidade -->
+    <section id="temas" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span class="text-eco-600 font-bold uppercase tracking-wider text-xs bg-eco-100 px-3 py-1 rounded-full">Pilares Sustentáveis</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Pilares Fundamentais da Sustentabilidade</h2>
+            <p class="text-slate-600">Compreenda os temas essenciais para a preservação do ecossistema e para a transição em direção a um futuro de carbono zero.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Card 1: Pegada de Carbono -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+                <div>
+                    <div class="h-48 rounded-xl overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=600&q=80" alt="Pegada de Carbono" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-eco-600 text-white text-xs font-bold px-2.5 py-1 rounded-full">Impacto</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-eco-600 mb-2">
+                        <i data-lucide="footprints" class="w-5 h-5"></i>
+                        <h3 class="font-bold text-xl text-slate-900">Pegada de Carbono</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        É a medida do impacto das atividades humanas sobre o ambiente, calculada através da quantidade de gases de efeito estufa produzidos (em equivalentes de CO₂).
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 font-medium flex items-center justify-between">
+                    <span>Métrica Ambiental</span>
+                    <span class="text-eco-600 font-bold">Entenda & Reduza &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Card 2: Plástico Verde -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+                <div>
+                    <div class="h-48 rounded-xl overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=600&q=80" alt="Bioplástico" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-eco-600 text-white text-xs font-bold px-2.5 py-1 rounded-full">Inovação</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-eco-600 mb-2">
+                        <i data-lucide="flask-conical" class="w-5 h-5"></i>
+                        <h3 class="font-bold text-xl text-slate-900">Plástico Verde (PE)</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Produzido a partir da cana-de-açúcar (matéria-prima renovável), esse polímero captura CO₂ da atmosfera durante seu cultivo, mantendo as mesmas propriedades de reciclagem.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 font-medium flex items-center justify-between">
+                    <span>Biopolímeros</span>
+                    <span class="text-eco-600 font-bold">Saiba Mais &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Card 3: Logística Reversa -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+                <div>
+                    <div class="h-48 rounded-xl overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=600&q=80" alt="Reciclagem e Logística" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-eco-600 text-white text-xs font-bold px-2.5 py-1 rounded-full">Processos</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-eco-600 mb-2">
+                        <i data-lucide="truck" class="w-5 h-5"></i>
+                        <h3 class="font-bold text-xl text-slate-900">Logística Reversa</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Instrumento de desenvolvimento econômico e social que viabiliza a coleta e a restituição dos resíduos sólidos ao setor empresarial para reaproveitamento.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 font-medium flex items-center justify-between">
+                    <span>Gestão de Resíduos</span>
+                    <span class="text-eco-600 font-bold">Saiba Mais &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Card 4: Economia Circular -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+                <div>
+                    <div class="h-48 rounded-xl overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80" alt="Economia Circular" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-eco-600 text-white text-xs font-bold px-2.5 py-1 rounded-full">Modelo</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-eco-600 mb-2">
+                        <i data-lucide="refresh-cw" class="w-5 h-5"></i>
+                        <h3 class="font-bold text-xl text-slate-900">Economia Circular</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Conceito estratégico que redefiniu a produção humana: elimina resíduos e poluição desde o design, mantendo produtos e materiais em uso contínuo.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 font-medium flex items-center justify-between">
+                    <span>Design Sustentável</span>
+                    <span class="text-eco-600 font-bold">Saiba Mais &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Card 5: Descarte de Pilhas e Baterias -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between md:col-span-2 lg:col-span-2">
+                <div class="grid md:grid-cols-2 gap-6 items-center">
+                    <div class="h-56 rounded-xl overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1619641249581-2244f77259f6?auto=format&fit=crop&w=600&q=80" alt="Baterias e Reciclagem" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-amber-500 text-white text-xs font-bold px-2.5 py-1 rounded-full">Alerta Ambiental</span>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 text-amber-600 mb-2">
+                            <i data-lucide="battery-charging" class="w-5 h-5"></i>
+                            <h3 class="font-bold text-xl text-slate-900">Descarte Correto de Pilhas e Baterias</h3>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Pilhas contêm metais pesados tóxicos como chumbo, cádmio e mercúrio. Quando descartadas no lixo comum, podem contaminar o solo e lençóis freáticos. Devem ser entregues em postos de coleta específicos para reciclagem adequada.
+                        </p>
+                        <div class="flex gap-2">
+                            <a href="#pontos-coleta" class="text-xs bg-amber-50 text-amber-700 font-semibold px-3 py-2 rounded-lg border border-amber-200 hover:bg-amber-100 transition">
+                                Encontrar Ponto de Coleta
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Calculadora Interativa de Pegada de Carbono -->
+    <section id="calculadora" class="py-20 bg-eco-900 text-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 space-y-3">
+                <span class="bg-eco-700 text-eco-200 text-xs font-bold px-3 py-1 rounded-full uppercase">Ferramenta Interativa</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold">Simulador de Pegada de Carbono</h2>
+                <p class="text-slate-300 text-sm sm:text-base">Estime sua emissão anual aproximada de CO₂ com base em hábitos simples de mobilidade e consumo.</p>
+            </div>
+
+            <div class="bg-white text-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
+                <form id="calc-form" class="space-y-8">
+                    <!-- Pergunta 1: Transporte -->
+                    <div class="space-y-3">
+                        <label class="block font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                            <i data-lucide="car" class="w-5 h-5 text-eco-600"></i>
+                            Como você se desloca no dia a dia com maior frequência?
+                        </label>
+                        <select id="transport" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-eco-500 focus:outline-none">
+                            <option value="0.2">Carro a Gasolina / Flex (Uso diário)</option>
+                            <option value="0.1">Transporte Público (Ônibus / Metrô)</option>
+                            <option value="0.05">Carro Elétrico / Híbrido</option>
+                            <option value="0">Bicicleta, A pé ou Trabalho Remoto</option>
+                        </select>
+                    </div>
+
+                    <!-- Pergunta 2: Consumo de Energia -->
+                    <div class="space-y-3">
+                        <label class="block font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                            <i data-lucide="zap" class="w-5 h-5 text-eco-600"></i>
+                            Qual o nível do seu consumo mensal de energia residencial?
+                        </label>
+                        <select id="energy" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-eco-500 focus:outline-none">
+                            <option value="1.2">Alto (Uso frequente de ar-condicionado/secadoras)</option>
+                            <option value="0.7">Moderado (Uso padrão de eletrodomésticos)</option>
+                            <option value="0.3">Baixo (Uso consciente de energia)</option>
+                            <option value="0.1">Energia Solar / Renovável instalada</option>
+                        </select>
+                    </div>
+
+                    <!-- Pergunta 3: Alimentação -->
+                    <div class="space-y-3">
+                        <label class="block font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                            <i data-lucide="utensils" class="w-5 h-5 text-eco-600"></i>
+                            Qual é o seu perfil alimentar predominante?
+                        </label>
+                        <select id="diet" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-eco-500 focus:outline-none">
+                            <option value="1.5">Consumo alto de carne vermelha (diário)</option>
+                            <option value="1.0">Consumo moderado de carnes / variada</option>
+                            <option value="0.5">Pescetariano / Pouca carne</option>
+                            <option value="0.2">Vegetariano ou Vegano</option>
+                        </select>
+                    </div>
+
+                    <!-- Pergunta 4: Reciclagem -->
+                    <div class="space-y-3">
+                        <label class="block font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                            <i data-lucide="recycle" class="w-5 h-5 text-eco-600"></i>
+                            Você pratica a separação e reciclagem do lixo doméstico?
+                        </label>
+                        <select id="recycle" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-eco-500 focus:outline-none">
+                            <option value="0">Não separo o lixo</option>
+                            <option value="-0.2">Separo parcialmente (plásticos/papel)</option>
+                            <option value="-0.4">Separo rigorosamente e compostagem orgânica</option>
+                        </select>
+                    </div>
+
+                    <button type="button" onclick="calculateFootprint()" class="w-full bg-eco-600 hover:bg-eco-700 text-white font-bold py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                        <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                        Calcular Minha Pegada Estimada
+                    </button>
+                </form>
+
+                <!-- Resultado -->
+                <div id="calc-result" class="hidden mt-8 pt-8 border-t border-slate-200 text-center space-y-4">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Resultado Estimado</span>
+                    <div class="text-4xl sm:text-5xl font-black text-eco-600" id="footprint-value">0.0 Toneladas</div>
+                    <p class="text-sm text-slate-600 max-w-lg mx-auto" id="footprint-desc">Sua pegada de CO₂ anual estimada por pessoa.</p>
+                    <div id="footprint-tips" class="bg-eco-50 p-4 rounded-xl text-xs text-eco-800 font-medium text-left space-y-2">
+                        <!-- Dicas via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Artigos Científicos com Filtro -->
+    <section id="artigos" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+            <span class="text-eco-600 font-bold uppercase tracking-wider text-xs bg-eco-100 px-3 py-1 rounded-full">Base de Conhecimento</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Artigos & Estudos Científicos</h2>
+            <p class="text-slate-600">Explore pesquisas relevantes sobre inovação ambiental e sustentabilidade aplicadas à indústria e à sociedade.</p>
+        </div>
+
+        <!-- Filtros -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-10" id="filter-buttons">
+            <button onclick="filterArticles('all')" class="filter-btn active bg-eco-600 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition">Todos</button>
+            <button onclick="filterArticles('bioplasticos')" class="filter-btn bg-white border border-slate-200 text-slate-600 hover:border-eco-600 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition">Plástico Verde</button>
+            <button onclick="filterArticles('circular')" class="filter-btn bg-white border border-slate-200 text-slate-600 hover:border-eco-600 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition">Economia Circular</button>
+            <button onclick="filterArticles('residuos')" class="filter-btn bg-white border border-slate-200 text-slate-600 hover:border-eco-600 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition">Pilhas e Resíduos</button>
+        </div>
+
+        <!-- Lista de Artigos Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="articles-container">
+            <!-- Artigo 1 -->
+            <article class="article-card bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden flex flex-col justify-between" data-category="bioplasticos">
+                <div class="p-6 space-y-3">
+                    <span class="text-xs font-bold text-eco-600 bg-eco-50 px-2.5 py-1 rounded-md">Plástico Verde</span>
+                    <h3 class="font-bold text-lg text-slate-900 leading-snug">SÍNTESE DE BIOPOLÍMEROS A PARTIR DA CANA-DE-AÇÚCAR E SEUS IMPACTOS NA REDUÇÃO DO CO₂</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Estudo comparativo demonstrando a captura direta de dióxido de carbono durante o cultivo da cana-de-açúcar destinada à produção de polietileno verde...
+                    </p>
+                </div>
+                <div class="p-6 pt-0 flex justify-between items-center text-xs border-t border-slate-50 mt-4">
+                    <span class="text-slate-400">Revista de Química Ambiental (2023)</span>
+                    <button onclick="openModal('artigo1')" class="text-eco-600 font-bold hover:underline flex items-center gap-1">
+                        Ler Resumo <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </article>
+
+            <!-- Artigo 2 -->
+            <article class="article-card bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden flex flex-col justify-between" data-category="circular">
+                <div class="p-6 space-y-3">
+                    <span class="text-xs font-bold text-eco-600 bg-eco-50 px-2.5 py-1 rounded-md">Economia Circular</span>
+                    <h3 class="font-bold text-lg text-slate-900 leading-snug">LOGÍSTICA REVERSA E ECONOMIA CIRCULAR NA CADEIA DE SUPRIMENTOS INDUSTRIAL</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Análise de viabilidade econômica e ecológica para o fechamento de ciclo em indústrias de manufatura de grande porte no Brasil...
+                    </p>
+                </div>
+                <div class="p-6 pt-0 flex justify-between items-center text-xs border-t border-slate-50 mt-4">
+                    <span class="text-slate-400">Journal of Sustainable Production (2022)</span>
+                    <button onclick="openModal('artigo2')" class="text-eco-600 font-bold hover:underline flex items-center gap-1">
+                        Ler Resumo <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </article>
+
+            <!-- Artigo 3 -->
+            <article class="article-card bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden flex flex-col justify-between" data-category="residuos">
+                <div class="p-6 space-y-3">
+                    <span class="text-xs font-bold text-eco-600 bg-eco-50 px-2.5 py-1 rounded-md">Pilhas e Resíduos</span>
+                    <h3 class="font-bold text-lg text-slate-900 leading-snug">RECUPERAÇÃO DE METAIS PESADOS EM BATERIAS DE ÍON-LÍTIO E ALCALINAS</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Avaliação dos processos hidrometalúrgicos para extração de cádmio, níquel e lítio visando mitigar a contaminação de lençóis freáticos...
+                    </p>
+                </div>
+                <div class="p-6 pt-0 flex justify-between items-center text-xs border-t border-slate-50 mt-4">
+                    <span class="text-slate-400">Cadernos de Toxicologia Ambiental (2024)</span>
+                    <button onclick="openModal('artigo3')" class="text-eco-600 font-bold hover:underline flex items-center gap-1">
+                        Ler Resumo <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Seção Dicas de Descarte & Guia Prático -->
+    <section id="pontos-coleta" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-eco-600 font-bold uppercase tracking-wider text-xs bg-eco-100 px-3 py-1 rounded-full">Guia Prático</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900">Como descartar corretamente pilhas, baterias e eletrônicos?</h2>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        O descarte incorreto de resíduos eletrônicos libera componentes altamente tóxicos no meio ambiente. Siga as orientações para destinação segura:
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <div class="p-1 bg-eco-600 text-white rounded-full mt-1"><i data-lucide="check" class="w-4 h-4"></i></div>
+                            <span class="text-sm text-slate-700"><strong>Não junte no lixo comum ou reciclável doméstico:</strong> Guarde em local seco e coberto em um recipiente dedicado.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="p-1 bg-eco-600 text-white rounded-full mt-1"><i data-lucide="check" class="w-4 h-4"></i></div>
+                            <span class="text-sm text-slate-700"><strong>Isole os terminais de baterias de lítio:</strong> Cole fita adesiva nos polos antes de guardar para evitar riscos de curto-circuito.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="p-1 bg-eco-600 text-white rounded-full mt-1"><i data-lucide="check" class="w-4 h-4"></i></div>
+                            <span class="text-sm text-slate-700"><strong>Procure Pontos de Entrega Voluntária (PEV):</strong> Supermercados, farmácias e lojas de eletrônicos mantêm coletores credenciados.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
+                    <h3 class="font-bold text-xl text-slate-900 mb-4 flex items-center gap-2">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-eco-600"></i>
+                        Onde encontrar PEVs?
+                    </h3>
+                    <p class="text-xs text-slate-600 mb-6">A legislação brasileira obriga fabricantes e comerciantes de eletrônicos a oferecerem postos para a coleta de seus produtos em desuso (Logística Reversa).</p>
+                    <div class="space-y-3">
+                        <div class="p-4 bg-slate-50 rounded-xl flex items-center justify-between">
+                            <span class="text-xs font-semibold text-slate-700">Postos Green Eletron</span>
+                            <span class="text-xs bg-eco-100 text-eco-800 font-bold px-2.5 py-1 rounded">Rede Nacional</span>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl flex items-center justify-between">
+                            <span class="text-xs font-semibold text-slate-700">Pontos em Supermercados</span>
+                            <span class="text-xs bg-slate-200 text-slate-700 font-bold px-2.5 py-1 rounded">Locais Públicos</span>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl flex items-center justify-between">
+                            <span class="text-xs font-semibold text-slate-700">Ecopontos Municipais</span>
+                            <span class="text-xs bg-slate-200 text-slate-700 font-bold px-2.5 py-1 rounded">Prefeituras</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-4 md:col-span-2">
+                    <div class="flex items-center gap-2">
+                        <div class="p-2 bg-eco-600 text-white rounded-lg">
+                            <i data-lucide="leaf" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xl font-bold text-white">EcoAção</span>
+                    </div>
+                    <p class="text-xs leading-relaxed max-w-sm">
+                        Plataforma educativa dedicada à divulgação científica e incentivo a práticas sustentáveis, economia circular e preservação ambiental.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#temas" class="hover:text-eco-400 transition">Temas</a></li>
+                        <li><a href="#calculadora" class="hover:text-eco-400 transition">Calculadora CO₂</a></li>
+                        <li><a href="#artigos" class="hover:text-eco-400 transition">Artigos Científicos</a></li>
+                        <li><a href="#pontos-coleta" class="hover:text-eco-400 transition">Descarte de Resíduos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-4">Conecte-se</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="p-2 bg-slate-800 rounded-lg hover:text-white transition"><i data-lucide="github" class="w-4 h-4"></i></a>
+                        <a href="#" class="p-2 bg-slate-800 rounded-lg hover:text-white transition"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                        <a href="#" class="p-2 bg-slate-800 rounded-lg hover:text-white transition"><i data-lucide="globe" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-800 text-center text-xs flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p>&copy; 2026 EcoAção - Projeto Educativo sobre Sustentabilidade.</p>
+                <p class="text-slate-500">Desenvolvido para conscientização e divulgação científica.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para Leitura de Artigo -->
+    <div id="article-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div id="modal-content" class="space-y-4">
+                <!-- Conteúdo dinâmico via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Principal JS -->
+    <script>
+        // Inicializar Lucide Icons
+        lucide.createIcons();
+
+        // Menu Mobile Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Fechar menu mobile ao clicar num link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Calculadora de Carbono
+        function calculateFootprint() {
+            const transport = parseFloat(document.getElementById('transport').value);
+            const energy = parseFloat(document.getElementById('energy').value);
+            const diet = parseFloat(document.getElementById('diet').value);
+            const recycle = parseFloat(document.getElementById('recycle').value);
+
+            // Cálculo simplificado de estimativa anual em Toneladas
+            let total = 2.5 + transport * 4.0 + energy * 2.5 + diet * 2.0 + recycle;
+            if (total < 1.0) total = 1.0;
+
+            const resultDiv = document.getElementById('calc-result');
+            const valueSpan = document.getElementById('footprint-value');
+            const tipsDiv = document.getElementById('footprint-tips');
+
+            valueSpan.innerText = total.toFixed(2) + " Toneladas de CO₂/ano";
+            resultDiv.classList.remove('hidden');
+
+            let tipsHTML = "<strong>Dicas Personalizadas:</strong><ul class='list-disc pl-4 space-y-1 mt-1'>";
+            if (transport > 0.1) tipsHTML += "<li>Considere trocar viagens individuais de carro por transporte público ou caronas.</li>";
+            if (energy > 0.5) tipsHTML += "<li>Substitua lâmpadas e eletrodomésticos velhos por modelos eficientes (Selo Procel A).</li>";
+            if (diet > 0.8) tipsHTML += "<li>Reduzir o consumo de carne vermelha 1-2 dias por semana diminui significativamente seu impacto.</li>";
+            if (recycle >= 0) tipsHTML += "<li>Separe os resíduos secos e destine pilhas/eletrônicos aos pontos de logística reversa.</li>";
+            tipsHTML += "</ul>";
+
+            tipsDiv.innerHTML = tipsHTML;
+        }
+
+        // Filtro de Artigos
+        function filterArticles(category) {
+            const cards = document.querySelectorAll('.article-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-eco-600', 'text-white');
+                btn.classList.add('bg-white', 'text-slate-600');
+            });
+
+            event.target.classList.remove('bg-white', 'text-slate-600');
+            event.target.classList.add('bg-eco-600', 'text-white');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Dados dos Artigos para Modal
+        const articlesData = {
+            artigo1: {
+                title: "Síntese de Biopolímeros a partir da Cana-de-Açúcar e seus Impactos na Redução do CO₂",
+                journal: "Revista de Química Ambiental (2023)",
+                authors: "Dra. Maria Silva, Dr. Carlos Mendes",
+                abstract: "Este trabalho apresenta uma análise quantitativa do ciclo de vida (LCA) do polietileno verde sintetizado no Brasil. Demonstrou-se que para cada tonelada de plástico verde produzida, aproximadamente 3,09 toneladas de CO₂ são capturadas e fixadas pela cana-de-açúcar durante a fotossíntese, tornando o balanço hídrico e de carbono altamente positivo comparado aos polímeros de origem fóssil.",
+                keywords: "Bioplástico, Cana-de-açúcar, Pegada de Carbono, Polietileno Verde"
+            },
+            artigo2: {
+                title: "Logística Reversa e Economia Circular na Cadeia de Suprimentos Industrial",
+                journal: "Journal of Sustainable Production (2022)",
+                authors: "Prof. Roberto Andrade et al.",
+                abstract: "O artigo investiga os gargalos operacionais e legislativos da implementação da logística reversa em indústrias da América Latina. O estudo conclui que a transição de um modelo linear (extrair-produzir-descartar) para o circular reduz os custos de matéria-prima em até 28% e minimiza a disposição final de resíduos perigosos em aterros sanitários.",
+                keywords: "Logística Reversa, Economia Circular, Gestão de Resíduos, Cadeia de Suprimentos"
+            },
+            artigo3: {
+                title: "Recuperação de Metais Pesados em Baterias de Íon-Lítio e Alcalinas",
+                journal: "Cadernos de Toxicologia Ambiental (2024)",
+                authors: "Dra. Juliana Freitas, Ing. Lucas Pereira",
+                abstract: "Esta pesquisa mapeia a lixiviação de contaminantes (chumbo, cádmio e lítio) no solo resultantes do descarte incorreto de pilhas em lixões. Propõe-se um novo protocolo de hidrometallurgia com reagentes orgânicos para reciclagem e recuperação de 94% do cobalto e lítio contidos nas células gastas.",
+                keywords: "Descarte de Baterias, Hidrometallurgia, Metais Pesados, Ecotoxicologia"
+            }
+        };
+
+        function openModal(articleKey) {
+            const article = articlesData[articleKey];
+            if (!article) return;
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <span class="text-xs font-bold text-eco-600 bg-eco-50 px-2.5 py-1 rounded">${article.journal}</span>
+                <h3 class="text-xl font-bold text-slate-900 mt-2">${article.title}</h3>
+                <p class="text-xs text-slate-500"><strong>Autores:</strong> ${article.authors}</p>
+                <div class="border-t border-slate-100 my-4 pt-4">
+                    <h4 class="text-xs font-bold uppercase text-slate-400 mb-2">Resumo Expandido</h4>
+                    <p class="text-sm text-slate-700 leading-relaxed">${article.abstract}</p>
+                </div>
+                <div class="bg-slate-50 p-3 rounded-xl text-xs text-slate-600">
+                    <strong>Palavras-chave:</strong> ${article.keywords}
+                </div>
+            `;
+
+            document.getElementById('article-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('article-modal').classList.add('hidden');
+        }
+
+        // Fechar modal ao clicar fora dele
+        window.onclick = function(event) {
+            const modal = document.getElementById('article-modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
